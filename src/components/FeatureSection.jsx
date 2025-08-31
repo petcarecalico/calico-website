@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Image1 from "../../public/images/feature-card-1.svg";
 import Image2 from "../../public/images/feature-card-2.svg";
 import Image3 from "../../public/images/feature-card-3.svg";
-import Image4 from "../../public/images/feature-card-4.svg"
-
+import Image4 from "../../public/images/feature-card-4.svg";
 
 export default function FeaturesSection() {
   const features = [
@@ -32,13 +32,14 @@ export default function FeaturesSection() {
 
   return (
     <section className="w-full bg-[#E8E6FF] flex justify-center">
-      {/* Heading */}
-      <div className=" py-[70px] px-6 md:px-10 lg:px-[140px] mx-auto flex flex-col justify-center max-w-[1440px]" >
-        <div className="mb-12 text-center lg:text-left ">
+      <div className="py-[70px] px-6 md:px-10 lg:px-[140px] mx-auto flex flex-col justify-center max-w-[1440px]">
+        {/* Heading */}
+        <div className="mb-12 text-center lg:text-left">
           <h2 className="text-[28px] md:text-[32px] font-poppins font-medium leading-[44px] max-w-[800px] mx-auto lg:mx-0">
             <span className="text-[#AE0386]">Your all-in-one </span>
             <span className="text-[#20403C]">
-              pet health companion – <br className="hidden md:block" /> for owners, vets, and clinics.
+              pet health companion – <br className="hidden md:block" /> for owners,
+              vets, and clinics.
             </span>
           </h2>
         </div>
@@ -46,9 +47,12 @@ export default function FeaturesSection() {
         {/* Feature Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1440px] mx-auto">
           {features.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="flex flex-col items-center bg-white rounded-[52px] shadow-sm transition-transform hover:scale-[1.02]"
+              whileHover={{ scale: 1.03, y: -4 }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              className="flex flex-col items-center bg-white rounded-[52px] shadow-sm 
+             hover:shadow-xl transition-shadow"
             >
               {/* Image */}
               <div className="w-full aspect-[4/3] relative">
@@ -69,11 +73,10 @@ export default function FeaturesSection() {
                   {item.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
-
   );
 }

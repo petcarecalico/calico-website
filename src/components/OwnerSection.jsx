@@ -5,13 +5,16 @@ import apple from "../../public/icons/apple.svg";
 import android from "../../public/icons/android.svg";
 import ellipse from "../../public/icons/ellipse.svg";
 import star from "../../public/icons/star.svg";
+import footprint1 from "../../public/icons/foot-print-1.svg";
+import footprint2 from "../../public/icons/foot-print-2.svg";
+import { motion } from "framer-motion";
 
 export default function OwnerSection() {
   return (
-    <section className="w-full flex flex-col justify-center items-center">
+    <section className="w-full flex flex-col justify-center items-center" id="features">
       <div className="w-full bg-[#F6DF8F4D] rounded-t-[462px] flex flex-col items-center px-20  pt-35 pb-0">
         {/* Top Content */}
-        <div className="flex flex-col  items-center justify-between gap-12 max-w-[1160px]">
+        <div className="flex flex-col  items-center w-full justify-between gap-4 ">
           {/* Text Content */}
           <div className="flex flex-col items-start gap-6 w-full">
             <div className="flex flex-col items-center gap-6 w-full text-center">
@@ -20,9 +23,16 @@ export default function OwnerSection() {
                   For Vets, clinics & Hospitals
                 </p>
 
-                <h2 className="text-[#20403C] text-[48px]  font-poppins font-medium leading-[64px] text-center">
+                <motion.h2
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-[#20403C] text-[48px] font-poppins font-medium leading-[64px] text-center"
+                >
                   First-Ever Mobile App with <br /> Built-In Admin Panel
-                </h2>
+                </motion.h2>
+
 
                 {/* Signature */}
                 <div className="self-end  relative ">
@@ -34,8 +44,8 @@ export default function OwnerSection() {
             {/* Paragraph */}
           </div>
 
-          <div className="flex">
-            <div className="max-w-[560px]">
+          <div className="flex w-full  max-w-[1160px]">
+            <div className="max-w-[560px] mt-6">
               <p className="text-[#000000] font-poppins text-[18px] font-normal leading-[34px] mb-6 mt-8 ">
                 Calico is the first-ever mobile platform that allows vets, clinics,
                 and hospitals to manage all operations directly from their phone –
@@ -50,20 +60,27 @@ export default function OwnerSection() {
                 </button>
 
                 <button className="flex items-center gap-3 px-3 py-2 rounded-[12px] bg-[#A16207] shadow-[4px_4px_0px_0px_#000] text-white font-poppins font-[500] text-[20px] transition-transform duration-200 hover:scale-105">
-                  Download Calico Bussiness 
+                  Download Calico Bussiness
                   <Image src={android} alt="Google Play" width={20} height={20} />
                 </button>
               </div>
             </div>
 
             {/* Phone Image */}
-            <div>
-              <div className="relative flex justify-center lg:justify-end">
-                <Image
-                  src={adminSc}
-                  alt="App Preview"
-                  className="w-[324px]  h-auto relative -mb-[120px] lg:-mb-[180px] -top-10"
-                />
+            <div className="w-full">
+              <div className="relative flex justify-center will-change-transform motion-safe:animate-[float_6s_ease-in-out_infinite]">
+                <motion.div
+                  animate={{ y: [0, -12, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative flex justify-center"
+                >
+                  <Image
+                    src={adminSc}
+                    alt="App Preview"
+                    className="w-[324px] h-auto relative -mb-[120px] lg:-mb-[180px] -top-5"
+                  />
+                </motion.div>
+
               </div>
             </div>
           </div>
@@ -71,54 +88,81 @@ export default function OwnerSection() {
       </div>
 
       {/* White Stats Section */}
-      <div className="w-full max-w-[1440px] bg-white flex flex-col lg:flex-row justify-center items-center gap-16 px-6 lg:px-20 py-20">
-        <div className="flex  gap-[98px] max-w-[770px]">
+      <div className="w-full max-w-[1160px] bg-white flex  lg:flex-row gap-25   py-20">
+        <div className="flex gap-[98px] relative max-w-[770px]">
           {/* Stat 1 */}
-          <div className="flex flex-col gap-3 relative">
-            <span className="text-[#20403C] text-[32px] font-poppins font-semibold leading-[34px]">
-              60%
-            </span>
-            <p className="text-black/70 font-poppins text-[14px] leading-[20px] max-w-[318px]">
-              Improved patient retention through automated reminders, follow-ups
-              & health records.
-            </p>
-            <Image
-              src={ellipse}
-              alt="Ellipse Graphic"
-              className="absolute left-[-50px] top-[-40px] w-[234px] h-[198px]"
-            />
+          <div className="flex flex-col gap-[98px]">
+            <div className="flex flex-col gap-[8px] ">
+              <motion.span
+                initial={{ scale: 0.5, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 120, damping: 12 }}
+                viewport={{ once: true }}
+                className="text-[#20403C] text-[32px] font-poppins font-semibold leading-[34px]"
+              >
+                60%
+              </motion.span>
+
+              <p className="text-black/70 font-poppins text-[14px] leading-[20px] max-w-[318px]">
+                Improved patient retention through automated reminders, follow-ups
+                & health records.
+              </p>
+            </div>
+            <div className="flex flex-col gap-[8px]">
+              <span className="text-[#20403C] text-[32px] font-poppins font-semibold leading-[34px]">
+                70%
+              </span>
+              <p className="text-black/70 font-poppins text-[14px] leading-[20px] max-w-[318px]">
+                Revenue growth potential with optimized schedules, reduced no-shows
+                & better staff management.
+              </p>
+            </div>
           </div>
 
           {/* Stat 2 */}
-          <div className="flex flex-col gap-3">
-            <span className="text-[#20403C] text-[32px] font-poppins font-semibold leading-[34px]">
-              70%
-            </span>
-            <p className="text-black/70 font-poppins text-[14px] leading-[20px] max-w-[318px]">
-              Revenue growth potential with optimized schedules, reduced no-shows
-              & better staff management.
-            </p>
-          </div>
+
+
 
           {/* Stat 3 */}
-          <div className="flex flex-col gap-3">
-            <span className="text-[#20403C] text-[32px] font-poppins font-semibold leading-[34px]">
-              45%
-            </span>
-            <p className="text-black/70 font-poppins text-[14px] leading-[20px] max-w-[318px]">
-              Time saved in patient management with real-time queue &
-              appointment tracking.
-            </p>
+          <div className="flex flex-col  justify-between">
+            <div>
+              <Image
+                src={ellipse}
+                alt="Ellipse Graphic"
+                className="absolute left-[280px] top-[40px] w-[234px] h-[198px]"
+              />
+            </div>
+            <div className="flex flex-col gap-3">
+
+              <span className="text-[#20403C] text-[32px] font-poppins font-semibold leading-[34px]">
+                45%
+              </span>
+              <p className="text-black/70 font-poppins text-[14px] leading-[20px] max-w-[318px]">
+                Time saved in patient management with real-time queue &
+                appointment tracking.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Star + Callout */}
-        <div className="flex flex-col items-center gap-6 relative">
-          <Image src={star} alt="Star" width={80} height={80} className="absolute -top-10 -left-12" />
-          <p className="text-[#AE0386] font-poppins text-[16px] font-semibold text-center max-w-[240px]">
-            Run your entire practice & Business from your pocket.
-          </p>
+        <div className="flex flex-col justify-between gap-6 ">
+          <div>
+
+          </div>
+          <div className="relative">
+            <Image src={footprint1} alt="foot-print-1" className="absolute -top-12 right-22" />
+            <Image src={footprint2} alt="foot-print-1" className="absolute -top-9 right-12" />
+            <Image src={star} alt="Star" width={80} height={80} className="absolute -top-10 -left-12" />
+            <p className="text-[#AE0386] font-poppins text-[16px] font-[500]  max-w-[284px]">
+              Run your entire practice & <br />Business from your pocket.
+            </p>
+          </div>
         </div>
+
+      </div>
+      <div className="h-8 bg-[#F6DF8F4D] w-full" >
+
       </div>
     </section>
   );

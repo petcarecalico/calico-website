@@ -20,16 +20,20 @@ export default function Hero() {
 
 
     return (
-        <section className="flex flex-col items-center text-center px-4 md:px-10 lg:px-20  pt-12 pb-10 max-w-[1440px] mx-auto">
+        <section className="flex flex-col items-center text-center px-4 md:px-10 lg:px-20  pt-12 pb-10 max-w-[1440px] mx-auto" id="hero">
             {/* Badge */}
-            <div className="flex px-[30px] py-[10px] justify-center items-center gap-[10px] rounded-[18px] bg-[rgba(139,92,246,0.30)] mb-6">
+            <div className="flex px-[30px] py-[10px] justify-center items-center gap-[10px] 
+                rounded-[18px] bg-[rgba(139,92,246,0.30)] mb-6 animate-fade-down">
                 <span className="text-black font-poppins text-[16px] leading-8 font-medium">
                     Smart Pet Care, Simplified
                 </span>
             </div>
 
+
+
+
             {/* Heading */}
-            <h1 className="max-w-[868px] text-black font-poppins text-[24px]  font-medium leading-[75%] mb-4 mt-6">
+            <h1 className="max-w-[868px] text-black font-poppins text-[24px]  font-medium leading-[75%] mb-4 mt-6 animate-fade-up [animation-delay:0.3s]">
                 Find Trusted Pet Care & Veterinary Services Near You
             </h1>
 
@@ -51,7 +55,7 @@ export default function Hero() {
                     width={660}
                     height={220}
                     className="relative"
-                />  
+                />
             </div>
         </section>
     );

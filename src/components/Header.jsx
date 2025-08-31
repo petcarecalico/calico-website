@@ -13,26 +13,38 @@ const navItems = [
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      let current = "hero";
-      navItems.forEach(({ id }) => {
-        const section = document.getElementById(id);
-        if (
-          section &&
-          section.offsetTop - 120 <= scrollY &&
-          section.offsetTop + section.offsetHeight > scrollY
-        ) {
-          current = id;
-        }
-      });
-      setActiveSection(current);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollY = window.scrollY;
+  //     let current = "hero";
+  //     navItems.forEach(({ id }) => {
+  //       const section = document.getElementById(id);
+  //       if (
+  //         section &&
+  //         section.offsetTop - 120 <= scrollY &&
+  //         section.offsetTop + section.offsetHeight > scrollY
+  //       ) {
+  //         current = id;
+  //       }
+  //     });
+  //     setActiveSection(current);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
+const handleNavClick = (e, id) => {
+  e.preventDefault();
+  const section = document.getElementById(id);
+  const offset = 120; // navbar height
+  const top = section.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({ top, behavior: "smooth" });
+  setActiveSection(id); // 👈 make sure active nav updates
+};
+
+
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white">
@@ -51,11 +63,11 @@ export default function Navbar() {
               key={id}
               href={`#${id}`}
               className={`flex flex-col justify-center h-[26px] text-center font-poppins text-[16px] font-medium leading-[45.8px] transition-colors
-                ${
-                  activeSection === id
-                    ? "text-[#00000080]" // Active color (green highlight)
-                    : "text-black hover:text-[#00000080]"
+                ${activeSection === id
+                  ? "text-[#00000080]" // Active color (green highlight)
+                  : "text-black hover:text-[#00000080]"
                 }`}
+              onClick={(e) => handleNavClick(e, id)}
             >
               {label}
             </a>

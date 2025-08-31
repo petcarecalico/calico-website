@@ -1,11 +1,26 @@
 import "./globals.css";
 import Header from "@/components/Header";
-import { Poppins } from "next/font/google";
+import { Poppins, Prata, Inter } from "next/font/google";
 
+// Poppins (general UI font)
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100","200", "300", "400", "500", "600", "700"], // add normal, medium, semibold, bold
+  weight: ["100","200","300","400","500","600","700"],
   variable: "--font-poppins",
+});
+
+// Prata (serif display font for headings)
+const prata = Prata({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-prata",
+});
+
+// Inter (modern sans for body text, optional)
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400","500","600","700"],
+  variable: "--font-inter",
 });
 
 export const metadata = {
@@ -16,7 +31,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
+      <body
+        className={`${poppins.variable} ${prata.variable} ${inter.variable} antialiased`}
+      >
         {/* Global Navbar */}
         <Header />
 
