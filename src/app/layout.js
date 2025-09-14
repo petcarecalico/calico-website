@@ -26,14 +26,15 @@ const inter = Inter({
 export const metadata = {
   title: "Calico",
   description: "Official Calico Website",
+  icons: {
+    icon: "/icons/favIcon.png",  // ✅ put your favicon inside /public/icons
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full overflow-x-hidden">
-      <body
-    className="min-h-screen overflow-x-hidden"
-      >
+      <body className="min-h-screen overflow-x-hidden">
         {/* Global Navbar */}
         <Header />
         {/* Page Content */}
