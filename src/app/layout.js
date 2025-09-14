@@ -30,15 +30,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full overflow-x-hidden">
       <body
-        className={`${poppins.variable} ${prata.variable} ${inter.variable} antialiased`}
+    className="min-h-screen overflow-x-hidden"
       >
         {/* Global Navbar */}
         <Header />
-
         {/* Page Content */}
-        <main className="pt-[100px]">{children}</main>
+        <main className="pt-[100px] ">{children}</main>
       </body>
     </html>
   );
