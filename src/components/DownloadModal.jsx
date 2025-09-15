@@ -26,7 +26,7 @@ export default function DownloadModal({ isOpen, variant = "desktop" }) {
             className={
               variant === "desktop"
                 ? "max-w-[1440px] mx-auto px-[140px] py-[60px] flex gap-[80px]"
-                : "w-full flex flex-col gap-10 px-6  items-center justify-center "
+                : "w-full flex flex-col gap-10   items-center justify-center "
             }
           >
             {/* LEFT SIDE */}
@@ -39,16 +39,16 @@ export default function DownloadModal({ isOpen, variant = "desktop" }) {
             >
               {/* Pet Parents */}
               <div>
-                <div className="flex flex-col gap-7 items-center lg:items-start">
+                <div className="flex flex-col gap-6 items-center lg:items-start">
                   <div className="flex flex-row h-4 justify-center lg:justify-start">
-                    <span className="text-black font-inter text-[16px]  font-semibold">
+                    <span className="text-black font-poppins text-[16px]  font-semibold">
                       Calico for&nbsp;
                     </span>
-                    <span className="text-[#76A013] font-inter text-[16px] font-semibold">
+                    <span className="text-[#76A013] font-poppins text-[16px] font-semibold">
                       Pet Parents
                     </span>
                   </div>
-                  <p className="text-[#000000B2] font-inter text-[14px] leading-[22px] lg:max-w-[374px] text-center lg:text-start max-w-[100%] md:max-w-[60%] ">
+                  <p className="text-[#000000B2] font-poppins text-[14px] leading-[22px] lg:max-w-[374px] text-center lg:text-start max-w-[100%] md:max-w-[60%] ">
                     Easily book appointments, track health records, get care
                     reminders, and shop pet essentials—all in one app.
                   </p>
@@ -66,16 +66,16 @@ export default function DownloadModal({ isOpen, variant = "desktop" }) {
 
               {/* Businesses */}
               <div>
-                <div className="flex flex-col gap-7 items-center lg:items-start">
+                <div className="flex flex-col gap-6 items-center lg:items-start">
                   <div className="flex flex-row h-4 justify-center lg:justify-start">
-                    <span className="text-black font-inter text-[16px] font-semibold">
+                    <span className="text-black font-poppins text-[16px] font-semibold">
                       Calico for&nbsp;
                     </span>
-                    <span className="text-[#9747FF] font-inter text-[16px] font-semibold">
+                    <span className="text-[#9747FF] font-poppins text-[16px] font-semibold">
                       Businesses
                     </span>
                   </div>
-                  <p className="text-[#000000B2] font-inter text-[14px] leading-[22px] lg:max-w-[374px] text-center lg:text-start max-w-[100%] md:max-w-[60%] ">
+                  <p className="text-[#000000B2] font-poppins text-[14px] leading-[22px] lg:max-w-[374px] text-center lg:text-start max-w-[100%] md:max-w-[60%] ">
                     Manage appointments, grow your practice, and connect with pet
                     parents — all in one platform.
                   </p>
@@ -106,7 +106,7 @@ export default function DownloadModal({ isOpen, variant = "desktop" }) {
                 className={
                   variant === "desktop"
                     ? "w-[466px] h-[404px] relative"
-                    : " w-[100%] md:w-[75%] h-[274px] md:h-[240px] relative"
+                    : "   w-[100%] md:w-[75%] h-[274px] md:h-[240px] relative overflow-hidden"
                 }
               >
                 <video

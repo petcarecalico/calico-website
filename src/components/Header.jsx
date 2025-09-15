@@ -19,10 +19,11 @@ const navItems = [
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("hero");
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState("download");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
@@ -33,6 +34,16 @@ export default function Header() {
     setActiveSection(id);
     setIsMenuOpen(false); // close mobile menu on click
   };
+
+  useEffect(() => {
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 0); // true if scrolled
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   // Close on outside click
   useEffect(() => {
@@ -52,13 +63,15 @@ export default function Header() {
   return (
     <section ref={navRef} className="relative z-50 w-full">
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 w-full  bg-white z-50">
+      <nav   className={`fixed top-0 left-0 w-full bg-white z-50 transition-shadow duration-300 ${
+    isScrolled ? "shadow-md" : ""
+  }`}>
         <div
           className="
     w-full flex items-center justify-between 
-    px-[20px] pt-[60px] pb-[20px]             /* mobile */
-    md:container md:mx-auto md:px-[60px] md:py-[30px] /* tablet */
-    lg:grid lg:grid-cols-3 lg:px-[140px] lg:py-[30px] /* desktop */
+    px-[20px] pt-[26px] pb-[20px]             /* mobile */
+    md:container md:mx-auto md:px-[42px] md:py-[30px] /* tablet */
+    lg:grid lg:grid-cols-3 lg:px-[140px] lg:py-[30px]  /* desktop */
   "
         >
           {/* Left: Logo */}
@@ -101,7 +114,13 @@ export default function Header() {
                          hover:brightness-110 transition"
             >
               Download Calico APP
-              <img src="/icons/dropdown-icon.svg" alt="down" />
+              <motion.img
+                src="/icons/dropdown-icon.svg"
+                alt="down"
+                animate={{ rotate: isModalOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              />
+
             </button>
           </div>
 

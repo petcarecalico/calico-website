@@ -5,7 +5,7 @@ import { Poppins, Prata, Inter } from "next/font/google";
 // Poppins (general UI font)
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100","200","300","400","500","600","700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
   variable: "--font-poppins",
 });
 
@@ -19,7 +19,7 @@ const prata = Prata({
 // Inter (modern sans for body text, optional)
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400","500","600","700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
 });
 
@@ -27,7 +27,11 @@ export const metadata = {
   title: "Calico",
   description: "Official Calico Website",
   icons: {
-    icon: "/icons/favIcon.png",  // ✅ put your favicon inside /public/icons
+    icon: [
+      { url: "/icons/favNewCropped.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/favNewCropped.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/icons/favNewCropped.png", // Apple touch icon
   },
 };
 
