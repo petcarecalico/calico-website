@@ -19,7 +19,7 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="px-6 md:px-12 lg:px-35 pt-17.5 bg-white"
+                className="px-6 md:px-12 lg:px-35 pt-17.5 bg-white min-w-[320px]"
             >
                 <div className="w-full flex justify-center">
                     <div className="flex flex-col items-center gap-[54px] 
@@ -42,7 +42,7 @@ export default function AboutSection() {
                             <h2 className="text-[#20403C] font-poppins 
                    text-[16px] md:text-[14px] lg:text-[26px] 
                    font-semibold leading-[24px] md:leading-[24px] lg:leading-[35px] 
-                   w-[350px] md:w-auto mb-4">
+                   w-[300px] md:w-auto mb-4">
                                 Why Choose Calico For Your Pet Care Needs?
                             </h2>
 
@@ -62,7 +62,7 @@ export default function AboutSection() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="w-[350px] h-[204px] 
+                            className="w-[100%] h-[204px] 
            md:w-[262px] md:h-[204px] 
            lg:w-[650px] lg:h-[282px]"
 
@@ -70,7 +70,7 @@ export default function AboutSection() {
                             <img
                                 src={image1.src}
                                 alt="Calico Pet Care"
-                                className="w-full h-full rounded-xl object-cover"
+                                className="w-full h-full rounded-[32px] lg:rounded-[42px] object-cover"
                             />
                         </motion.div>
                     </div>
@@ -86,7 +86,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 className="flex justify-center bg-white py-20"
             >
-                <div className="w-full max-w-[350px] max-h-[214px] lg:max-w-[1160px] md:max-w-[672px] md:max-h-[214px] lg:max-h-[344px] lg:rounded-t-[142px] rounded-t-[62px] md:rounded-t-[62px] bg-[#CEE38C] px-[48px] md:px-12 lg:px-16 pt-[36px] lg:pt-20">
+                <div className="w-full max-w-[90%] mx-10 max-h-[214px] lg:max-w-[1160px] md:max-w-[672px] md:max-h-[214px] lg:max-h-[344px] lg:rounded-t-[142px] rounded-t-[62px] md:rounded-t-[62px] bg-[#CEE38C] px-[48px] md:px-12 lg:px-16 pt-[36px] lg:pt-20">
                     {/* Wrapper */}
                     <div className="flex flex-col items-center gap-12 lg:gap-[48px] lg:max-w-[988px] md:max-w-[584px]  mx-auto">
                         <div className="flex flex-col md:flex-row items-center md:items-start gap-[48px] lg:gap-[58px] lg:w-full w-[610px]">
@@ -106,7 +106,7 @@ export default function AboutSection() {
                             </motion.div>
 
                             {/* Blocks */}
-                            <div className="flex flex-col lg:w-full md:w-[400px]  w-[340px] lg:h-[652px] md:h-[500px] h-[300px] justify-start mt-0 md:-mt-5 lg:mt-0  md:justify-center gap-8">
+                            <div className="flex flex-col lg:w-full md:w-[400px]   lg:h-[652px] md:h-[500px] h-[300px] justify-start mt-0 md:-mt-5 lg:mt-0  md:justify-center gap-8">
                                 {/* Block 1 */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -50 }}

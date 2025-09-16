@@ -11,7 +11,7 @@ import x from "../../public/icons/twitter.svg";
 export default function Footer() {
     return (
         <footer className="w-full bg-[#FFF5E5] px-[43px] md:px-[60px] lg:px-0 lg:py-16 py-[60px] flex justify-center">
-            <div className="w-full lg:max-w-[1160px] md:max-w-[624px] max-w-[360px] flex flex-col lg:gap-[46px] gap-[30px]">
+            <div className="w-full lg:max-w-[1160px] md:max-w-[624px] max-w-[320px] flex flex-col lg:gap-[46px] gap-[30px]">
                 {/* Top Row */}
                 <div className="flex flex-col md:flex-row justify-between items-center md:items-start lg:gap-8 gap-2">
                     {/* Left side - Logo */}
@@ -68,17 +68,17 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row md:justify-between justify-center items-center gap-8 md:gap-12">
                     {/* Download Links */}
                     <div className="flex flex-col gap-3 font-poppins">
-                        <h3 className="font-medium text-[#000000] text-center lg:text-left lg:text-[14px] text-[13px]">Download Links</h3>
-                        <Link href="#" className=" transition text-center lg:text-left lg:text-[14px] text-[12px] font-normal text-[#000000B2]">
+                        <h3 className="font-medium text-[#000000] text-center md:text-left lg:text-[14px] text-[13px]">Download Links</h3>
+                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px] font-normal text-[#000000B2]">
                             Calico (iOS)
                         </Link>
-                        <Link href="#" className=" transition text-center lg:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
+                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
                             Calico (Android)
                         </Link>
-                        <Link href="#" className=" transition text-center lg:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
+                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
                             Calico Business (iOS)
                         </Link>
-                        <Link href="#" className=" transition text-center lg:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
+                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
                             Calico Business (Android)
                         </Link>
                     </div>
@@ -88,21 +88,21 @@ export default function Footer() {
                     {/* Company Links */}
                     <div className="flex flex-col gap-3 font-poppins">
                         <h3 className="font-medium text-[#000000] text-center lg:text-left lg:text-[14px] text-[13px]">Company</h3>
-                        <Link href="#" className=" transition text-center lg:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">Home</Link>
-                        <Link href="#" className=" transition text-center lg:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">About</Link>
-                        <Link href="#" className=" transition text-center lg:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">Features</Link>
-                        <Link href="#" className=" transition text-center lg:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">Contact us</Link>
+                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">Home</Link>
+                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">About</Link>
+                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">Features</Link>
+                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">Contact us</Link>
                     </div>
 
                     {/* Contact Info */}
                     <div className="hidden md:flex flex-col gap-8 font-poppins">
                         <div>
-                            <h3 className="font-medium text-right lg:text-left text-[#000000] lg:text-[14px] text-[13px]">Contact</h3>
-                            <p className=" transition text-right lg:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">2nd Stage, Indiranagar, Bengaluru, <br /> Karnataka 560008</p>
+                            <h3 className="font-medium text-right md:text-left text-[#000000] lg:text-[14px] text-[13px]">Contact</h3>
+                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">2nd Stage, Indiranagar, Bengaluru, <br /> Karnataka 560008</p>
                         </div>
                         <div>
-                            <p className=" transition text-right lg:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2] mb-2">info@calicopetcare.com</p>
-                            <p className=" transition text-right lg:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">9363298065</p>
+                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2] mb-2">info@calicopetcare.com</p>
+                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">9363298065</p>
                         </div>
                     </div>
 
@@ -168,7 +168,7 @@ export default function Footer() {
                 </div>
                                 <div className="w-full border-t border-[#E2E0DA]" />
                 {/* Bottom Row */}
-                <div className="flex flex-row text-nowrap justify-between items-center gap-6 lg:text-sm text-[10px] text-[#1C1B1F]/70 font-poppins">
+                <div className="flex flex-col text-nowrap justify-between items-center gap-0 lg:text-sm text-[10px] text-[#1C1B1F]/70 font-poppins">
                     <p>All rights reserved. © 2025 Calico.</p>
 
                     <div className="flex items-center gap-6">

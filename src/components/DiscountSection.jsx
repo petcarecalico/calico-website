@@ -20,7 +20,7 @@ export default function DiscountSection() {
             </div> */}
 
             {/* Main Container */}
-            <div className="relative z-10 flex flex-col md:flex-row gap-20 md:gap-0 items-center justify-between lg:max-w-[920px] md:max-w-[594px] max-w-[350px] mx-auto lg:py-[112px] py-[54px]">
+            <div className="relative z-10 flex flex-col md:flex-row gap-20 md:gap-0 items-center justify-between lg:max-w-[920px] md:max-w-[594px] max-w-[320px] px-4  mx-auto lg:py-[112px] py-[54px]">
 
                 {/* Image Section */}
                 <div className="relative flex order-2 md:order-1 justify-center md:justify-start">
@@ -62,7 +62,7 @@ export default function DiscountSection() {
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ type: "spring", stiffness: 200 }}
                     >
-                        <Image src={discount} width={84} height={84} alt="discount" className="absolute lg:left-45 lg:-top-10  -top-8 left-65 w-[54px] h-[54px] lg:h-[84px] lg:w-[84px]" />
+                        <Image src={discount} width={84} height={84} alt="discount" className="absolute lg:left-45 lg:-top-10  -top-10 left-56 w-[54px] h-[54px] lg:h-[84px] lg:w-[84px]" />
                     </motion.div>
 
                     <h2 className="font-prata lg:text-[48px] md:text-[24px] text-[24px] lg:leading-[46px]  leading-[24px] text-[#20403C] ">

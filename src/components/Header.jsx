@@ -179,22 +179,21 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 top-[100px] md:top-[90px] w-full h-[calc(100%-100px)] bg-white  
+              className="fixed inset-0 top-[78px] md:top-[90px] w-full h-[calc(100%-100px)] bg-white  
            flex flex-col items-center pt-6 pb-10 overflow-y-auto"
 
             >
               {/* Top Tabs */}
               <div
-                className="flex w-full justify-center px-6 mb-[62px] md:mb-[50px]"
+                className="flex w-full justify-center px-3 mb-[62px] md:mb-[50px]"
               >
                 <div
-                  className="flex items-center gap-[20px] p-[4px] rounded-[15px] 
-               border border-black/10 bg-[#EAFBF980] 
-               sm:w-[100%] md:w-[75%]"
+                  className="flex items-center py-[4px] px-[4px] rounded-[15px] 
+               border border-black/10 bg-[#EAFBF980] w-[100%] md:w-[75%]"
                 >
                   <button
                     onClick={() => setActiveTab("download")}
-                    className={`flex-1 px-[30px] py-[10px] rounded-[12px] font-poppins font-medium text-[16px] transition text-nowrap 
+                    className={`flex-1 px-[14px] py-[10px] rounded-[12px] font-poppins font-medium text-[16px] transition text-nowrap 
         ${activeTab === "download"
                         ? "bg-[#0D302C] text-white"
                         : "bg-transparent text-black"
@@ -204,7 +203,7 @@ export default function Header() {
                   </button>
                   <button
                     onClick={() => setActiveTab("home")}
-                    className={`flex-1 px-[30px] py-[10px] rounded-[12px] font-poppins font-medium text-[16px] transition text-nowrap
+                    className={`flex-1 px-[18px] py-[10px] rounded-[12px] font-poppins font-medium text-[16px] transition text-nowrap
         ${activeTab === "home"
                         ? "bg-[#0D302C] text-white"
                         : "bg-transparent text-black"

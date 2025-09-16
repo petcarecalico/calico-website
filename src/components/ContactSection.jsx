@@ -104,7 +104,8 @@ export default function ContactSection() {
                   Address
                 </h3>
                 <p className="text-[#000000] lg:text-[16px] text-[14px] font-medium font-poppins text-center md:text-start">
-                  2nd Stage, Indiranagar, Bengaluru, Karnataka 560008
+                  {/* 2nd Stage, Indiranagar, Bengaluru, Karnataka 560008 */}
+                  Provident Sunworth City, Bengaluru, Karnataka 560060
                 </p>
               </div>
               <div className="block md:hidden">

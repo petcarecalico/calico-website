@@ -36,7 +36,7 @@ export default function OwnerSection() {
 
                 {/* Signature */}
                 <div className="self-end  relative lg:w-[262px] lg:h-[68px] md:w-[108px] md:h-[28px] w-[70px] h-[18px]" >
-                  <Image src={signature} alt="signature" className="relative lg:-top-4 top-2 " />
+                  <Image src={signature} alt="signature" className="relative lg:-top-4 top-2 -left-10 " />
                 </div>
                 <div className="relative block md:hidden mt-10">
                   <Image src={star} alt="Star" width={80} height={80} className="absolute -top-10 -left-12" />
