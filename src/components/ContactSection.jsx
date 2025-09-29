@@ -35,7 +35,7 @@ export default function ContactSection() {
                 alt="Dog Illustration"
                 width={312}
                 height={236}
-                className="object-contain w-[312px] h-[167px] lg:w-[526px] lg:h-[270px]"
+                className="object-contain w-[312px] h-[167px]  lg:h-[270px]"
               />
 
               {/* Social Links */}
