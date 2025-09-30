@@ -3,12 +3,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 
 const Modal = ({ open, onClose, children }) => {
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "auto";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [open]);
+useEffect(() => {
+  if (open) {
+    document.body.classList.add("no-scroll");
+    document.documentElement.classList.add("no-scroll");
+  } else {
+    document.body.classList.remove("no-scroll");
+    document.documentElement.classList.remove("no-scroll");
+  }
+  return () => {
+    document.body.classList.remove("no-scroll");
+    document.documentElement.classList.remove("no-scroll");
+  };
+}, [open]);
+
+
 
   return (
     <AnimatePresence>

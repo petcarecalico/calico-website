@@ -1,5 +1,7 @@
 import "./globals.css";
 import Header from "@/components/Header";
+import { DownloadPopupProvider } from "../context/DownloadPopupContext";
+import DownloadPopupRoot from "../components/DownloadPopupRoot";
 import { Poppins, Prata, Inter } from "next/font/google";
 
 // Poppins (general UI font)
@@ -39,10 +41,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full overflow-x-hidden">
       <body className="min-h-screen overflow-x-hidden">
-        {/* Global Navbar */}
-        <Header />
-        {/* Page Content */}
-        <main className="pt-[100px] ">{children}</main>
+        <DownloadPopupProvider>
+          {/* Global Navbar */}
+          <Header />
+          {/* Download Popup Root */}
+          <DownloadPopupRoot />
+          {/* Page Content */}
+          <main className="pt-[100px] ">{children}</main>
+        </DownloadPopupProvider>
       </body>
     </html>
   );

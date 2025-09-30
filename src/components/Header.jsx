@@ -91,17 +91,31 @@ export default function Header() {
           {/* Center: Nav Items (hidden on tab & mobile) */}
           <div className="hidden lg:flex justify-center gap-10">
             {navItems.map(({ id, label }) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                className={`font-poppins text-[16px] font-medium transition-colors ${activeSection === id
-                  ? "text-[#00000080]"
-                  : "text-black hover:text-[#00000080]"
-                  }`}
-                onClick={(e) => handleNavClick(e, id)}
-              >
-                {label}
-              </a>
+              label === "Download" ? (
+                <button
+                  key={id}
+                  className={`font-poppins text-[16px] font-medium transition-colors ${activeSection === id
+                    ? "text-[#00000080]"
+                    : "text-black hover:text-[#00000080]"
+                    }`}
+                  onClick={() => setIsModalOpen(true)}
+                  style={{ background: "none", border: "none", padding: 0, margin: 0, cursor: "pointer" }}
+                >
+                  {label}
+                </button>
+              ) : (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className={`font-poppins text-[16px] font-medium transition-colors ${activeSection === id
+                    ? "text-[#00000080]"
+                    : "text-black hover:text-[#00000080]"
+                    }`}
+                  onClick={(e) => handleNavClick(e, id)}
+                >
+                  {label}
+                </a>
+              )
             ))}
           </div>
 
