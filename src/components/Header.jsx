@@ -49,8 +49,8 @@ export default function Header() {
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
-        setIsModalOpen(false);
-        setIsMenuOpen(false);
+        if (isModalOpen) setIsModalOpen(false);
+        if (isMenuOpen) setIsMenuOpen(false);
       }
     };
     if (isModalOpen || isMenuOpen) {
@@ -98,7 +98,10 @@ export default function Header() {
                     ? "text-[#00000080]"
                     : "text-black hover:text-[#00000080]"
                     }`}
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={e => {
+                    e.preventDefault();
+                    setIsModalOpen(true);
+                  }}
                   style={{ background: "none", border: "none", padding: 0, margin: 0, cursor: "pointer" }}
                 >
                   {label}
@@ -134,7 +137,6 @@ export default function Header() {
                 animate={{ rotate: isModalOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               />
-
             </button>
           </div>
 
@@ -193,9 +195,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 top-[78px] md:top-[90px] w-full h-[calc(100%-100px)] bg-white  
-           flex flex-col items-center pt-6 pb-10 overflow-y-auto"
-
+              className="fixed inset-0 top-[78px] md:top-[90px] w-full h-[calc(100vh-78px)] md:h-[calc(100vh-90px)] bg-white flex flex-col items-center pt-6 pb-10 overflow-y-auto"
             >
               {/* Top Tabs */}
               <div
@@ -234,7 +234,13 @@ export default function Header() {
                 {activeTab === "download" ? (
                   // Download section (reuse your component)
                   <div className="w-full">
-                    <DownloadModal isOpen={true} variant="mobile" />
+                    <DownloadModal
+                      isOpen={true}
+                      variant="mobile"
+                      onOpenDownloadNav={() => {
+                        setIsModalOpen(false);
+                      }}
+                    />
                     {/* Or create <DownloadSection /> if you want a simplified mobile-only layout */}
                   </div>
                 ) : (

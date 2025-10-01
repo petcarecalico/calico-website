@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion"; // ✅ import motion
+import { motion } from "framer-motion";
 import image1 from "../../public/images/about-section.png";
 import MobileImg from "../../public/images/mobile.png";
 import alert from "../../public/icons/alert.svg";
@@ -11,6 +11,36 @@ import android from "../../public/icons/android.svg";
 import apple from "../../public/icons/apple.svg";
 import { useDownloadPopup } from "../context/DownloadPopupContext";
 
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.45,
+            delayChildren: 0.22,
+            ease: [0.16, 1, 0.3, 1] // even more pronounced cubic-bezier
+        }
+    }
+};
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 0 },
+    show: { opacity: 1, y: 0, transition: { duration: 1.35, ease: [1,1,1,1] } }
+};
+const fadeLeft = {
+    hidden: { opacity: 0, x: 0 },
+    show: { opacity: 1, x: 0, transition: { duration: 1.35, ease: [1,1,1,1] } }
+};
+const fadeRight = {
+    hidden: { opacity: 0, x: 0 },
+    show: { opacity: 1, x: 0, transition: { duration: 1.35, ease: [1,1,1,1] } }
+};
+const fadeScale = {
+    hidden: { opacity: 0, scale: 0 },
+    show: { opacity: 1, scale: 1, transition: { duration: 1.35, ease: [1,1,1,1] } }
+};
+
 export default function AboutSection() {
     const { openPopup } = useDownloadPopup();
 
@@ -18,57 +48,33 @@ export default function AboutSection() {
         <section className="w-full flex flex-col justify-center h-full" id="about">
             {/* Top Section */}
             <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true }}
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
                 className="px-6 md:px-12 lg:px-35 pt-17.5 bg-white min-w-[320px]"
             >
                 <div className="w-full flex justify-center">
-                    <div className="flex flex-col items-center gap-[54px] 
-                md:flex-row md:justify-between md:gap-[30px]">
-
+                    <div className="flex flex-col items-center gap-[54px] md:flex-row md:justify-between md:gap-[30px]">
                         {/* Left Content */}
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
+                            variants={fadeLeft}
                             className="flex flex-col items-center md:items-start max-w-[400px] text-center md:text-left"
                         >
-                            <span className="px-4 py-1 rounded-[12px] bg-[#9747FF4D] 
-                     text-black font-poppins text-[12px] lg:text-[16px] font-medium capitalize 
-                      mb-7">
+                            <span className="px-4 py-1 rounded-[12px] bg-[#9747FF4D] text-black font-poppins text-[12px] lg:text-[16px] font-medium capitalize mb-7">
                                 About
                             </span>
-
-                            <h2 className="text-[#20403C] font-poppins 
-                   text-[16px] md:text-[14px] lg:text-[26px] 
-                   font-semibold leading-[24px] md:leading-[24px] lg:leading-[35px] 
-                   w-[300px] md:w-auto mb-4">
+                            <h2 className="text-[#20403C] font-poppins text-[16px] md:text-[14px] lg:text-[26px] font-semibold leading-[24px] md:leading-[24px] lg:leading-[35px] w-[300px] md:w-auto mb-4">
                                 Why Choose Calico For Your Pet Care Needs?
                             </h2>
-
-                            <p className="font-poppins text-black/70 
-                  text-[14px] md:text-[12px] lg:text-[14px] 
-                  leading-[24px] md:leading-[20px] lg:leading-[26px]">
-                                All-In-One Pet Clinic Management App That Helps Veterinarians,
-                                Clinics, And Pet Owners Connect Seamlessly. From Booking
-                                Appointments To Managing Pet Health Records And Payments,
-                                Everything is Secure, Mobile-First, And Accessible Anytime.
+                            <p className="font-poppins text-black/70 text-[14px] md:text-[12px] lg:text-[14px] leading-[24px] md:leading-[20px] lg:leading-[26px]">
+                                All-In-One Pet Clinic Management App That Helps Veterinarians, Clinics, And Pet Owners Connect Seamlessly. From Booking Appointments To Managing Pet Health Records And Payments, Everything is Secure, Mobile-First, And Accessible Anytime.
                             </p>
                         </motion.div>
-
                         {/* Right Image */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="w-[100%] h-[204px] 
-           md:w-[262px] md:h-[204px] 
-           lg:w-[650px] lg:h-[282px]"
-
+                            variants={fadeScale}
+                            className="w-[100%] h-[204px] md:w-[262px] md:h-[204px] lg:w-[650px] lg:h-[282px]"
                         >
                             <img
                                 src={image1.src}
@@ -77,7 +83,6 @@ export default function AboutSection() {
                             />
                         </motion.div>
                     </div>
-
                 </div>
             </motion.div>
 
@@ -109,13 +114,16 @@ export default function AboutSection() {
                             </motion.div>
 
                             {/* Blocks */}
-                            <div className="flex flex-col lg:w-full md:w-[400px]   lg:h-[652px] md:h-[500px] h-[300px] justify-start mt-0 md:-mt-5 lg:mt-0  md:justify-center gap-8">
+                            <motion.div
+                                variants={containerVariants}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={{ once: true, amount: 0.3 }}
+                                className="flex flex-col lg:w-full md:w-[400px] lg:h-[652px] md:h-[500px] h-[300px] justify-start mt-0 md:-mt-5 lg:mt-0 md:justify-center gap-8"
+                            >
                                 {/* Block 1 */}
                                 <motion.div
-                                    initial={{ opacity: 0, x: -50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.6 }}
-                                    viewport={{ once: true }}
+                                    variants={fadeLeft}
                                     className="self-start flex items-center w-full lg:max-w-[474px] max-w-[300px]  lg:px-5 lg:py-7 px-[20px] py-[20px] lg:rounded-[32px] rounded-[22px]  bg-[#20403C] text-white font-poppins lg:text-[16px] text-[12px] gap-6 lg:leading-[24px] leading-[20px] hover:scale-105 transition-all cursor-pointer"
                                 >
                                     <Image src={doctor} alt="Stethoscope" width={32} height={32} />
@@ -124,10 +132,7 @@ export default function AboutSection() {
 
                                 {/* Block 2 */}
                                 <motion.div
-                                    initial={{ opacity: 0, x: 50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.6 }}
-                                    viewport={{ once: true }}
+                                    variants={fadeRight}
                                     className="self-end md:-mt-12 -mt-10 z-10 flex items-center w-full lg:max-w-[474px] max-w-[270px]   lg:px-5 lg:py-7 px-[20px] py-[10px]   lg:rounded-[32px] rounded-[22px] bg-[#F6DF8F] text-black font-poppins lg:text-[16px] text-[12px] gap-6 lg:leading-[24px] leading-[20px] shadow-lg hover:scale-105 transition-all cursor-pointer"
                                 >
                                     <Image src={alert} alt="Alert" width={32} height={32} />
@@ -136,10 +141,7 @@ export default function AboutSection() {
 
                                 {/* Block 3 */}
                                 <motion.div
-                                    initial={{ opacity: 0, x: -50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.6 }}
-                                    viewport={{ once: true }}
+                                    variants={fadeLeft}
                                     className="self-start flex items-center w-full lg:max-w-[474px] max-w-[254px]  lg:px-5 lg:py-7 px-[20px] py-[15px]  lg:rounded-[32px] rounded-[22px] bg-[#AE0386] text-white font-poppins lg:text-[16px] text-[12px] gap-6 lg:leading-[24px] leading-[20px] hover:scale-105 transition-all cursor-pointer"
                                 >
                                     <Image src={notes} alt="Notes" width={32} height={32} />
@@ -148,16 +150,13 @@ export default function AboutSection() {
 
                                 {/* Block 4 */}
                                 <motion.div
-                                    initial={{ opacity: 0, x: 50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.6 }}
-                                    viewport={{ once: true }}
+                                    variants={fadeRight}
                                     className="self-end md:-mt-12 -mt-10 z-10 flex items-center w-full lg:max-w-[474px] max-w-[260px]   lg:px-5 lg:py-7 px-[20px] py-[10px]   lg:rounded-[32px] rounded-[22px] bg-[#6366F1] text-white font-poppins lg:text-[16px] text-[12px] gap-6 leading-[24px] shadow-lg hover:scale-105 transition-all cursor-pointer"
                                 >
                                     <Image src={chat} alt="Chat" width={32} height={32} />
                                     Chat with vets for follow-up advice.
                                 </motion.div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>

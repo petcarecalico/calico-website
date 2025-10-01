@@ -6,8 +6,15 @@ import apple from "../../public/icons/apple_download.svg";
 import appleGif from "../../public/images/appleGif.svg";
 import LogoDownload from "../../public/images/logoDownloadsec.svg";
 import platform from "../../public/images/platforms.svg";
+import { useDownloadPopup } from "../context/DownloadPopupContext";
 
-export default function DownloadModal({ isOpen, variant = "desktop" }) {
+export default function DownloadModal({ isOpen, variant = "desktop", onOpenDownloadNav }) {
+  const { openPopup } = useDownloadPopup();
+  // Helper to open DownloadNav and close DownloadModal if handler provided
+  const handleOpenDownloadNav = () => {
+    if (onOpenDownloadNav) onOpenDownloadNav();
+    openPopup();
+  };
   return (
     <AnimatePresence>
       {isOpen && (
@@ -55,10 +62,10 @@ export default function DownloadModal({ isOpen, variant = "desktop" }) {
                 </div>
                 {/* Buttons */}
                 <div className="flex gap-4 mt-7 flex-col w-full  items-center lg:items-start lg:flex-row">
-                  <button className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#F6DF8F4D] font-poppins text-[16px] font-medium  justify-center w-[276px]">
+                  <button className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#F6DF8F4D] font-poppins text-[16px] font-medium  justify-center w-[276px]" onClick={handleOpenDownloadNav}>
                     <Image src={apple} alt="Image" height={26} width={26} /> Download Calico APP
                   </button>
-                  <button className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#F6DF8F4D] font-poppins text-[16px] font-medium justify-center w-[276px]">
+                  <button className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#F6DF8F4D] font-poppins text-[16px] font-medium justify-center w-[276px]" onClick={handleOpenDownloadNav}>
                     <Image src={android} alt="Image" height={26} width={26} /> Download Calico APP
                   </button>
                 </div>
@@ -82,11 +89,11 @@ export default function DownloadModal({ isOpen, variant = "desktop" }) {
                 </div>
                 {/* Buttons */}
                 <div className="flex gap-4 mt-7 flex-col w-full  items-center lg:items-start lg:flex-row">
-                  <button className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#B1E6FF4D] font-poppins text-[16px] font-medium  justify-center w-[276px]">
+                  <button className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#B1E6FF4D] font-poppins text-[16px] font-medium  justify-center w-[276px]" onClick={handleOpenDownloadNav}>
                     <Image src={apple} alt="Image" height={26} width={26} /> Download Calico
                     Business
                   </button>
-                  <button className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#B1E6FF4D] font-poppins text-[16px] font-medium  justify-center w-[276px]">
+                  <button className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#B1E6FF4D] font-poppins text-[16px] font-medium  justify-center w-[276px]" onClick={handleOpenDownloadNav}>
                     <Image src={android} alt="Image" height={26} width={26} /> Download Calico
                     Business
                   </button>

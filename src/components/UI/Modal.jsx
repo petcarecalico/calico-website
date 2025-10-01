@@ -31,7 +31,13 @@ useEffect(() => {
           {/* Overlay */}
           <motion.div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={onClose}
+            onClick={e => {
+              // Prevent anchor default behavior when closing modal
+              if (e.target.tagName === 'A') {
+                e.preventDefault();
+              }
+              onClose && onClose(e);
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

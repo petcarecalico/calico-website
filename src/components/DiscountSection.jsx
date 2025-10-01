@@ -5,19 +5,23 @@ import elipse from "../../public/images/elipsePurple.svg"
 import property from "../../public/images/property.svg";
 import discount from "../../public/icons/discount.svg";
 import cat from "../../public/images/cat.svg";
+
 export default function DiscountSection() {
     return (
-        <section className="relative w-full bg-[#fafcf4] overflow-hidden">
-            {/* Background GIF */}
-            {/* <div className="absolute inset-0">
-                <Image
-                    src={wave}
-                    alt="wave background"
-                    fill
-                    className="object-cover object-center bg-[#fafcf4] text-[#fafcf4]"
-                    // unoptimized // allows GIF
+    <section className="relative w-full bg-[#fafcf4] overflow-hidden min-h-[320px] md:h-[420px] xl:h-[520px]">
+            {/* Background Video */}
+            <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0 min-h-[320px] md:h-[420px] xl:h-[520px]">
+                <video
+                    src="/videos/wave.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover object-center min-h-[320px] md:h-[420px] xl:h-[520px] "
+                    style={{ background: '#fafcf4', mixBlendMode: 'multiply', opacity: 0.1 }}
                 />
-            </div> */}
+                {/* fallback bg color is handled by section's bg-[#fafcf4] */}
+            </div>
 
             {/* Main Container */}
             <div className="relative z-10 flex flex-col md:flex-row gap-20 md:gap-0 items-center justify-between lg:max-w-[920px] md:max-w-[594px] max-w-[320px] px-4  mx-auto lg:py-[112px] py-[54px]">
