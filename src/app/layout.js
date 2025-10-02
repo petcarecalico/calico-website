@@ -3,6 +3,9 @@ import Header from "@/components/Header";
 import { DownloadPopupProvider } from "../context/DownloadPopupContext";
 import DownloadPopupRoot from "../components/DownloadPopupRoot";
 import { Poppins, Prata, Inter } from "next/font/google";
+import AOSProvider from "@/components/AOSprovider";
+import "aos/dist/aos.css";
+
 
 // Poppins (general UI font)
 const poppins = Poppins({
@@ -46,6 +49,7 @@ export default function RootLayout({ children }) {
           <Header />
           {/* Download Popup Root */}
           <DownloadPopupRoot />
+          <AOSProvider/>
           {/* Page Content */}
           <main className="pt-[100px] ">{children}</main>
         </DownloadPopupProvider>

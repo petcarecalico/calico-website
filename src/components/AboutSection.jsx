@@ -25,20 +25,20 @@ const containerVariants = {
 };
 
 const fadeUp = {
-    hidden: { opacity: 0, y: 0 },
-    show: { opacity: 1, y: 0, transition: { duration: 1.35, ease: [1,1,1,1] } }
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 1.35, ease: [0.22, 1, 0.36, 1] } }
 };
 const fadeLeft = {
-    hidden: { opacity: 0, x: 0 },
-    show: { opacity: 1, x: 0, transition: { duration: 1.35, ease: [1,1,1,1] } }
+    hidden: { opacity: 0, x: 10 },
+    show: { opacity: 1, x: 0, transition: { duration: 1.35, ease: [0.22, 1, 0.36, 1] } }
 };
 const fadeRight = {
-    hidden: { opacity: 0, x: 0 },
-    show: { opacity: 1, x: 0, transition: { duration: 1.35, ease: [1,1,1,1] } }
+    hidden: { opacity: 0, x: -10 },
+    show: { opacity: 1, x: 0, transition: { duration: 1.35, ease: [0.22, 1, 0.36, 1] } }
 };
 const fadeScale = {
-    hidden: { opacity: 0, scale: 0 },
-    show: { opacity: 1, scale: 1, transition: { duration: 1.35, ease: [1,1,1,1] } }
+    hidden: { opacity: 0, scale: 0.9 },
+    show: { opacity: 1, scale: 1, transition: { duration: 1.35, ease: [0.22, 1, 0.36, 1] } }
 };
 
 export default function AboutSection() {
@@ -58,7 +58,7 @@ export default function AboutSection() {
                     <div className="flex flex-col items-center gap-[54px] md:flex-row md:justify-between md:gap-[30px]">
                         {/* Left Content */}
                         <motion.div
-                            variants={fadeLeft}
+                            data-aos="fade-left"
                             className="flex flex-col items-center md:items-start max-w-[400px] text-center md:text-left"
                         >
                             <span className="px-4 py-1 rounded-[12px] bg-[#9747FF4D] text-black font-poppins text-[12px] lg:text-[16px] font-medium capitalize mb-7">
@@ -73,7 +73,7 @@ export default function AboutSection() {
                         </motion.div>
                         {/* Right Image */}
                         <motion.div
-                            variants={fadeScale}
+                            data-aos="fade-right"
                             className="w-[100%] h-[204px] md:w-[262px] md:h-[204px] lg:w-[650px] lg:h-[282px]"
                         >
                             <img
@@ -123,8 +123,8 @@ export default function AboutSection() {
                             >
                                 {/* Block 1 */}
                                 <motion.div
-                                    variants={fadeLeft}
                                     className="self-start flex items-center w-full lg:max-w-[474px] max-w-[300px]  lg:px-5 lg:py-7 px-[20px] py-[20px] lg:rounded-[32px] rounded-[22px]  bg-[#20403C] text-white font-poppins lg:text-[16px] text-[12px] gap-6 lg:leading-[24px] leading-[20px] hover:scale-105 transition-all cursor-pointer"
+                                    data-aos="fade-right"
                                 >
                                     <Image src={doctor} alt="Stethoscope" width={32} height={32} />
                                     Book consultations, Emergency & <br /> grooming services.
@@ -132,7 +132,7 @@ export default function AboutSection() {
 
                                 {/* Block 2 */}
                                 <motion.div
-                                    variants={fadeRight}
+                                    data-aos="fade-left"
                                     className="self-end md:-mt-12 -mt-10 z-10 flex items-center w-full lg:max-w-[474px] max-w-[270px]   lg:px-5 lg:py-7 px-[20px] py-[10px]   lg:rounded-[32px] rounded-[22px] bg-[#F6DF8F] text-black font-poppins lg:text-[16px] text-[12px] gap-6 lg:leading-[24px] leading-[20px] shadow-lg hover:scale-105 transition-all cursor-pointer"
                                 >
                                     <Image src={alert} alt="Alert" width={32} height={32} />
@@ -141,7 +141,7 @@ export default function AboutSection() {
 
                                 {/* Block 3 */}
                                 <motion.div
-                                    variants={fadeLeft}
+                                    data-aos="fade-right"
                                     className="self-start flex items-center w-full lg:max-w-[474px] max-w-[254px]  lg:px-5 lg:py-7 px-[20px] py-[15px]  lg:rounded-[32px] rounded-[22px] bg-[#AE0386] text-white font-poppins lg:text-[16px] text-[12px] gap-6 lg:leading-[24px] leading-[20px] hover:scale-105 transition-all cursor-pointer"
                                 >
                                     <Image src={notes} alt="Notes" width={32} height={32} />
@@ -150,7 +150,7 @@ export default function AboutSection() {
 
                                 {/* Block 4 */}
                                 <motion.div
-                                    variants={fadeRight}
+                                    data-aos="fade-left"
                                     className="self-end md:-mt-12 -mt-10 z-10 flex items-center w-full lg:max-w-[474px] max-w-[260px]   lg:px-5 lg:py-7 px-[20px] py-[10px]   lg:rounded-[32px] rounded-[22px] bg-[#6366F1] text-white font-poppins lg:text-[16px] text-[12px] gap-6 leading-[24px] shadow-lg hover:scale-105 transition-all cursor-pointer"
                                 >
                                     <Image src={chat} alt="Chat" width={32} height={32} />

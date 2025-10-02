@@ -117,7 +117,7 @@ export default function DownloadModal({ isOpen, variant = "desktop", onOpenDownl
                 }
               >
                 <video
-                  src="/videos/download-video.mp4"
+                  src="/videos/download-video.webm"
                   autoPlay
                   muted
                   loop
@@ -145,7 +145,7 @@ export default function DownloadModal({ isOpen, variant = "desktop", onOpenDownl
                   className={
                     variant === "desktop"
                       ? "top-0 absolute right-0 rounded-tr-[42px] rounded-br-[42px]"
-                      : "top-0 absolute right-0 rounded-tr-[24px] rounded-br-[24px] h-[274px] md:h-[240px]"
+                      : "top-0 absolute right-0 rounded-tr-[24px] rounded-br-[24px] h-[274px] w-[136px] md:h-[240px] md:w-[198px]"
                   }
                 />
               </div>

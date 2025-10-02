@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import elipse from "../../public/images/elipsePurple.svg"
 import property from "../../public/images/property.svg";
 import discount from "../../public/icons/discount.svg";
-import cat from "../../public/images/cat.svg";
+import cat from "../../public/images/cat.png";
 
 export default function DiscountSection() {
     return (
@@ -12,13 +12,13 @@ export default function DiscountSection() {
             {/* Background Video */}
             <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0 min-h-[320px] md:h-[420px] xl:h-[520px]">
                 <video
-                    src="/videos/wave.mp4"
+                    src="/videos/wave-panel-new.webm"
                     autoPlay
                     loop
                     muted
                     playsInline
                     className="w-full h-full object-cover object-center min-h-[320px] md:h-[420px] xl:h-[520px] "
-                    style={{ background: '#fafcf4', mixBlendMode: 'multiply', opacity: 0.1 }}
+                    style={{ background: '#fafcf4', mixBlendMode: 'multiply', opacity: 0.05 }}
                 />
                 {/* fallback bg color is handled by section's bg-[#fafcf4] */}
             </div>
@@ -34,7 +34,7 @@ export default function DiscountSection() {
                         src={property}
                         height={228}
                         width={251}
-                        className="absolute lg:-left-30 z-10 lg:-top-25 -left-15 md:-left-10  -top-10 lg:w-[250px] lg:h-[220px] w-[142px] h-[128px]"
+                        className="absolute lg:-left-30 z-10 lg:-top-25 -left-15 md:-left-10 -top-10 lg:w-[250px] lg:h-[220px] w-[142px] h-[128px] mix-blend-multiply"
                     />
 
                     <motion.div
@@ -48,7 +48,7 @@ export default function DiscountSection() {
                             src={cat}
                             alt="cat"
                             className="mix-blend-multiply h-[160px] w-[160px]  lg:ml-0 md:ml-8 ml-0 lg:h-[256px] lg:w-[256px]"
-                            style={{ filter: "grayscale(1) brightness(0.5) sepia(1) hue-rotate(250deg)" }}
+                         
                         />
                         <Image
                             src={elipse}

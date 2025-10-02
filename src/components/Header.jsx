@@ -267,7 +267,7 @@ export default function Header() {
                       }
                     >
                       <video
-                        src="/videos/download-video.mp4"
+                        src="/videos/download-video.webm"
                         autoPlay
                         muted
                         loop
@@ -291,7 +291,7 @@ export default function Header() {
                         src={appleGif}
                         alt="Image"
                         className={
-                          "top-0 absolute right-0 rounded-tr-[24px] rounded-br-[24px] h-[274px] md:h-[240px]"
+                          "top-0 absolute right-0 rounded-tr-[24px] rounded-br-[24px] h-[274px] w-[136px] md:h-[240px] md:w-[198px]"
                         }
                       />
                     </div>
