@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useEffect, useState, useRef } from "react";
 import backpack from "../../public/images/sectionImg1.png";
 import graph from "../../public/images/sectionImg2.png";
 import records from "../../public/images/sectionImg3.png";
@@ -40,36 +41,76 @@ const features = [
 ];
 
 export default function AppShowcase() {
+    const [isDesktop, setIsDesktop] = useState(false);
+    const scrollRef = useRef(null);
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        const checkSize = () => setIsDesktop(window.innerWidth >= 1024);
+        checkSize();
+        window.addEventListener("resize", checkSize);
+        return () => window.removeEventListener("resize", checkSize);
+    }, []);
+
+    // Pause on hover (desktop only)
+    useEffect(() => {
+        if (!isDesktop || !scrollRef.current) return;
+
+        const container = scrollRef.current;
+
+        // Pause auto-scroll when hovering
+        const handleMouseEnter = () => {
+            container.style.animationPlayState = "paused";
+        };
+
+        // Resume auto-scroll when leaving
+        const handleMouseLeave = () => {
+            container.style.animationPlayState = "running";
+        };
+
+        container.addEventListener("mouseenter", handleMouseEnter);
+        container.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            container.removeEventListener("mouseenter", handleMouseEnter);
+            container.removeEventListener("mouseleave", handleMouseLeave);
+        };
+    }, [isDesktop]);
+
+
     return (
-        <section className="w-full flex justify-center ">
-            <div className="w-full  py-[30px] lg:py-20 lg:max-[1540px]:max-w-full lg:min-[1540px]:max-w-[1160px] sm:max-w-[390px] md:max-w-[624px] md:max-[900px]:max-w-full md:min-[1540px]:max-w-[624px]">
-                {/* Scrollable container */}
-                <div className="flex gap-6 overflow-x-auto pb-6 no-scrollbar snap-x snap-mandatory py-1 lg:max-[1540px]:px-[180px] lg:min-[1540px]:px-[6px] max-[390px]:px-[180px] min-[390px]:px-[20px]  md:max-[900px]:px-[80px]  ">
-                    {features.map((item) => (
+        <section className="w-full flex justify-center">
+            <div className="w-full py-[30px] lg:py-20 lg:max-[1540px]:max-w-full lg:min-[1540px]:max-w-[1160px] sm:max-w-[390px] md:max-w-[624px] md:max-[900px]:max-w-full md:min-[1540px]:max-w-[624px] overflow-hidden">
+                <div
+                    ref={scrollRef}
+                    className={`  flex gap-6 snap-x snap-mandatory py-3 
+          lg:max-[1540px]:px-[180px] lg:min-[1540px]:px-[6px] 
+          max-[390px]:px-[180px] min-[390px]:px-[20px] md:max-[900px]:px-[80px]
+          ${isDesktop ? "animate-scroll-start overflow-x-auto no-scrollba " : "overflow-x-auto no-scrollbar"}`}
+                >
+                    {/* Duplicate for seamless loop but start from first */}
+                    {[...features].map((item, index) => (
                         <div
-                            key={item.id}
+                            key={`${item.id}-${index}`}
                             className="flex flex-col items-center justify-between flex-shrink-0 snap-center
-                         w-[262px] lg:w-[262px] px-[46px] pt-[30px] gap-[24px] rounded-[42px]
-                         border border-[#DFDEFF] bg-[rgba(223,222,255,0.10)]
-                         shadow-sm hover:scale-[1.02] transition-transform duration-300 md:min-w-[354px] min-w-[262px] "
+              w-[262px] lg:w-[262px] px-[46px] pt-[30px] gap-[24px] rounded-[42px]
+              border border-[#DFDEFF] bg-[rgba(223,222,255,0.10)]
+              shadow-sm hover:scale-[1.03] transition-transform duration-300 md:min-w-[354px] min-w-[262px]"
                         >
-                            {/* Image */}
-
-
                             <div className="flex flex-col justify-center items-center gap-[12px]">
-                                {/* Title */}
                                 <h3 className="text-[#20403C] text-center font-poppins lg:text-[16px] text-[14px] font-medium leading-[24px] max-w-[220px] min-h-[48px] capitalize">
                                     {item.title}
                                 </h3>
-
-                                {/* Description */}
                                 <p className="w-[262px] text-center text-[#4c4c4d] font-poppins text-[14px] font-normal leading-[24px]">
                                     {item.desc}
                                 </p>
                             </div>
-
                             <div className="md:h-[136px] h-[90px] w-full flex justify-center items-center">
-                                <Image src={item.img} alt={item.title} className="md:h-[136px] h-[90px] w-auto object-contain" />
+                                <Image
+                                    src={item.img}
+                                    alt={item.title}
+                                    className="md:h-[136px] h-[90px] w-auto object-contain"
+                                />
                             </div>
                         </div>
                     ))}

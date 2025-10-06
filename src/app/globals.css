@@ -74,3 +74,32 @@ html {
   opacity: 0;
   animation: fadeUp 0.8s ease forwards;
 }
+
+@keyframes scrollXStart {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  .animate-scroll-start {
+    animation: scrollXStart 25s linear infinite;
+    display: flex;
+    width: max-content;
+    animation-play-state: running;
+    will-change: transform;
+  }
+
+  .animate-scroll-start:hover {
+    animation-play-state: paused;
+  }
+}
+
+.auto-scroll {
+  display: flex;
+  animation: scroll-horizontal 30s linear infinite;
+  will-change: transform;
+}
