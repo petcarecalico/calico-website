@@ -11,7 +11,7 @@ export default function Hero() {
             <div className="flex px-[30px] py-[10px] justify-center items-center gap-[10px] 
                 rounded-[18px] bg-[rgba(139,92,246,0.30)] mb-6 animate-fade-down">
                 <span className="text-black font-poppins lg:text-[16px] text-[12px] sm:text-[14px] leading-[32px] lg:leading-8 font-medium">
-                    Smart Pet Care, Simplified
+                    Smart Bookings, Best Service
                 </span>
             </div>
 
