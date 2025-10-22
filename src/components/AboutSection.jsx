@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import image1 from "../../public/images/about-section.png";
-import MobileImg from "../../public/images/mobile.png";
+import image1 from "../../public/images/about-section.webp";
+import MobileImg from "../../public/images/mobile.webp";
 import alert from "../../public/icons/alert.svg";
 import chat from "../../public/icons/chat.svg";
 import doctor from "../../public/icons/doctor.svg";

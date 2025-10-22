@@ -1,5 +1,5 @@
 import Image from "next/image";
-import adminSc from "../../public/images/adminSc.png";
+import adminSc from "../../public/images/adminSc.webp";
 import signature from "../../public/icons/signature.svg";
 import apple from "../../public/icons/apple.svg";
 import android from "../../public/icons/android.svg";

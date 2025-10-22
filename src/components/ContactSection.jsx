@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Dog from "../../public/gif/dogGif.gif";
-import image from "../../public/images/imageDog.png";
+import image from "../../public/images/imageDog.webp";
 
 
 export default function ContactSection() {

@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
-import backpack from "../../public/images/sectionImg1.png";
-import graph from "../../public/images/sectionImg2.png";
-import records from "../../public/images/sectionImg3.png";
-import billing from "../../public/images/sectionImg4.png";
-import chat from "../../public/images/sectionImg5.png";
+import backpack from "../../public/images/sectionImg1.webp";
+import graph from "../../public/images/sectionImg2.webp";
+import records from "../../public/images/sectionImg3.webp";
+import billing from "../../public/images/sectionImg4.webp";
+import chat from "../../public/images/sectionImg5.webp";
 
 const features = [
     {
@@ -52,28 +52,50 @@ export default function AppShowcase() {
         return () => window.removeEventListener("resize", checkSize);
     }, []);
 
-    // Pause on hover (desktop only)
+    // Convert vertical wheel events into horizontal scroll on desktop
     useEffect(() => {
         if (!isDesktop || !scrollRef.current) return;
 
         const container = scrollRef.current;
 
-        // Pause auto-scroll when hovering
-        const handleMouseEnter = () => {
-            container.style.animationPlayState = "paused";
+        let isPointerOver = false;
+
+        const onPointerEnter = () => (isPointerOver = true);
+        const onPointerLeave = () => (isPointerOver = false);
+
+        // Wheel handler: when user scrolls vertically, translate to horizontal.
+        // If container can't scroll further in that direction, allow the event to bubble so page can continue scrolling.
+        const onWheel = (e) => {
+            // Only intercept vertical scroll (deltaY)
+            if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+
+            const maxScrollLeft = container.scrollWidth - container.clientWidth;
+            const atLeft = container.scrollLeft <= 0;
+            const atRight = container.scrollLeft >= maxScrollLeft - 1; // small tolerance
+
+            // Determine desired horizontal scroll amount
+            const scrollAmount = e.deltaY; // direct mapping; browser deltaY already gives a good feel
+
+            // If scrolling up (deltaY < 0) and we're at left edge, allow page to scroll up
+            if (e.deltaY < 0 && atLeft) return;
+
+            // If scrolling down (deltaY > 0) and we're at right edge, allow page to scroll down
+            if (e.deltaY > 0 && atRight) return;
+
+            // Prevent page from scrolling and perform horizontal scroll
+            e.preventDefault();
+            container.scrollBy({ left: scrollAmount, behavior: "smooth" });
         };
 
-        // Resume auto-scroll when leaving
-        const handleMouseLeave = () => {
-            container.style.animationPlayState = "running";
-        };
-
-        container.addEventListener("mouseenter", handleMouseEnter);
-        container.addEventListener("mouseleave", handleMouseLeave);
+        // For better UX on trackpad/pointer devices, only intercept wheel when pointer is over the container
+        container.addEventListener("pointerenter", onPointerEnter);
+        container.addEventListener("pointerleave", onPointerLeave);
+        container.addEventListener("wheel", onWheel, { passive: false });
 
         return () => {
-            container.removeEventListener("mouseenter", handleMouseEnter);
-            container.removeEventListener("mouseleave", handleMouseLeave);
+            container.removeEventListener("pointerenter", onPointerEnter);
+            container.removeEventListener("pointerleave", onPointerLeave);
+            container.removeEventListener("wheel", onWheel);
         };
     }, [isDesktop]);
 
@@ -86,7 +108,9 @@ export default function AppShowcase() {
                     className={`  flex gap-6 snap-x snap-mandatory py-3 
           lg:max-[1540px]:px-[180px] lg:min-[1540px]:px-[6px] 
           max-[390px]:px-[180px] min-[390px]:px-[20px] md:max-[900px]:px-[80px]
-          ${isDesktop ? "animate-scroll-start overflow-x-auto no-scrollba " : "overflow-x-auto no-scrollbar"}`}
+          overflow-x-auto no-scrollbar`}
+                    // prevent vertical scroll snapping inside the container
+                    style={{ WebkitOverflowScrolling: "touch" }}
                 >
                     {/* Duplicate for seamless loop but start from first */}
                     {[...features].map((item, index) => (
