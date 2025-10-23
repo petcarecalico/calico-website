@@ -27,7 +27,7 @@ export default function Footer() {
 
                     {/* Right side tagline */}
                     <p className="text-[#000000B2] text-[14px] lg:text-[20px] font-medium font-poppins leading-[36px]">
-                        Smart Pet Care, Simplified.
+                        Smart Bookings, Best Service
                     </p>
                 </div>
 
