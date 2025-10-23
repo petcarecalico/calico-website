@@ -90,7 +90,7 @@ export default function ContactSection() {
                     Collaborations
                   </h3>
                   <p className="text-[#000000] lg:text-[16px] text-[14px] text-center md:text-start font-medium font-poppins">
-                    Teams@calicopetcare.com
+                    teams@calicopetcare.com
                   </p>
                   <p className="text-[#000000] lg:text-[16px] text-[14px] text-center md:text-start font-medium font-poppins">
                     70123 94800
