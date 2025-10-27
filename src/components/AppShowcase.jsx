@@ -54,7 +54,6 @@ export default function AppShowcase() {
 
     // Convert vertical wheel events into horizontal scroll on desktop
     useEffect(() => {
-        if (!isDesktop || !scrollRef.current) return;
 
         const container = scrollRef.current;
 
@@ -102,7 +101,7 @@ export default function AppShowcase() {
 
     return (
         <section className="w-full flex justify-center">
-            <div className="w-full py-[30px] lg:py-20 lg:max-[1540px]:max-w-full lg:min-[1540px]:max-w-[1160px] sm:max-w-[390px] md:max-w-[624px] md:max-[900px]:max-w-full md:min-[1540px]:max-w-[624px] overflow-hidden">
+            <div className="w-full py-20 lg:py-20 lg:max-[1540px]:max-w-full lg:min-[1540px]:max-w-[1160px] sm:max-w-[390px] md:max-w-[624px] md:max-[900px]:max-w-full md:min-[1540px]:max-w-[624px] overflow-hidden">
                 <div
                     ref={scrollRef}
                     className={`  flex gap-6 snap-x snap-mandatory py-3 
