@@ -166,7 +166,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                                <div className="w-full border-t border-[#E2E0DA]" />
+                <div className="w-full border-t border-[#E2E0DA]" />
                 {/* Bottom Row */}
                 <div className="flex flex-col text-nowrap justify-between items-center gap-0 lg:text-sm text-[10px] text-[#1C1B1F]/70 font-poppins">
                     <p>All rights reserved. © 2025 Calico.</p>
@@ -175,14 +175,16 @@ export default function Footer() {
                         {/* Socials */}
                         {/* Privacy / Terms */}
                         <div className="flex gap-2 ">
-                            <Link href="#">Privacy Policy</Link>
+                            <Link href="/privacy-policy">Privacy Policy</Link>
                             <span>|</span>
-                            <Link href="#">Terms of Service</Link>
+                            <Link href="/terms-and-conditions">Terms of Service</Link>
+                            <span>|</span>
+                            <Link href="/refund-policy">Refund Policy</Link>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </footer>
     );
 }

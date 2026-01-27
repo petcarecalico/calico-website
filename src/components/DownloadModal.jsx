@@ -3,7 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import android from "../../public/icons/android_download.svg";
 import apple from "../../public/icons/apple_download.svg";
-import appleGif from "../../public/images/appleGif.svg";
+import appIconPhoneWeb from "../../public/images/calico-petcare-app-icon-phone-web.webp";
+import appIconPhoneTablet from "../../public/images/calico-petcare-app-icon-phone-tablet.webp";
+import appIconPhoneMobile from "../../public/images/calico-petcare-app-icon-phone-mobile.webp";
 import LogoDownload from "../../public/images/logoDownloadsec.svg";
 import platform from "../../public/images/platforms.svg";
 import { useDownloadPopup } from "../context/DownloadPopupContext";
@@ -112,8 +114,8 @@ export default function DownloadModal({ isOpen, variant = "desktop", onOpenDownl
               <div
                 className={
                   variant === "desktop"
-                    ? "w-[466px] h-[404px] relative"
-                    : "   w-[100%] md:w-[75%] h-[274px] md:h-[240px] relative overflow-hidden"
+                    ? "w-[466px] h-[404px] relative overflow-hidden rounded-[42px]"
+                    : "w-[100%] md:w-[75%] h-[274px] md:h-[240px] relative overflow-hidden rounded-[24px]"
                 }
               >
                 <video
@@ -139,13 +141,34 @@ export default function DownloadModal({ isOpen, variant = "desktop", onOpenDownl
                     />
                   </span>
                 </div>
+                {/* Desktop image */}
                 <Image
-                  src={appleGif}
-                  alt="Image"
+                  src={appIconPhoneWeb}
+                  alt="Calico App"
                   className={
                     variant === "desktop"
-                      ? "top-0 absolute right-0 rounded-tr-[42px] rounded-br-[42px]"
-                      : "top-0 absolute right-0 rounded-tr-[24px] rounded-br-[24px] h-[274px] w-[136px] md:h-[240px] md:w-[198px]"
+                      ? "bottom-0 absolute right-0 rounded-br-[42px] object-contain h-full w-auto"
+                      : "hidden"
+                  }
+                />
+                {/* Tablet image - visible on md screens */}
+                <Image
+                  src={appIconPhoneTablet}
+                  alt="Calico App"
+                  className={
+                    variant === "desktop"
+                      ? "hidden"
+                      : "hidden md:block bottom-0 absolute right-0 rounded-br-[24px] object-contain h-full w-auto"
+                  }
+                />
+                {/* Mobile image - visible on small screens */}
+                <Image
+                  src={appIconPhoneMobile}
+                  alt="Calico App"
+                  className={
+                    variant === "desktop"
+                      ? "hidden"
+                      : "block md:hidden bottom-0 absolute right-0 rounded-br-[24px] object-contain h-full w-auto"
                   }
                 />
               </div>

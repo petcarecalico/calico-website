@@ -36,7 +36,7 @@ export default function Hero() {
             {/* Cat + Phone Illustration */}
             <div className="relative lg:mt-5 mt-[30px] md:mt-[24px] flex justify-center items-center">
                 <Image
-                    src="/images/black-cat.svg"
+                    src="/images/black-cat.webp"
                     alt="Black Cat"
                     width={660}
                     height={220}

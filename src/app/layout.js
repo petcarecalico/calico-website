@@ -29,7 +29,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Calico",
+  title: "Book Pet Clinic Appointments Online in Bangalore | Calico",
   description: "Official Calico Website",
   icons: {
     icon: [
