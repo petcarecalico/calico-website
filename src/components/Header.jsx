@@ -5,9 +5,7 @@ import logo from "../../public/images/calico-logo.svg";
 import DownloadModal from "./DownloadModal";
 import menu from "../../public/icons/menu.svg";
 import close from "../../public/icons/close.svg";
-import appleGif from "../../public/images/appleGif.svg";
-import LogoDownload from "../../public/images/logoDownloadsec.svg";
-import platform from "../../public/images/platforms.svg";
+import PromoVideoCard from "./PromoVideoCard";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -261,40 +259,7 @@ export default function Header() {
                         </a>
                       ))}
                     </div>
-                    <div
-                      className={
-                        "  w-[100%] md:w-[75%] h-[274px] md:h-[240px] relative overflow-hidden"
-                      }
-                    >
-                      <video
-                        src="/videos/download-video.webm"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className={
-                          "h-full w-full rounded-[24px] object-cover"
-                        }
-                      />
-                      <div className="flex flex-col justify-between pl-5 gap-2 top-0 py-6 h-full absolute max-w-[220px]">
-                        <Image src={LogoDownload} width={66} height={22} alt="Logo" />
-                        <span className="text-[#0D302C] font-poppins text-[16px] md:text-[20px] flex flex-col gap-4 font-medium leading-[22px] md:leading-[24px] capitalize">
-                          Smarter Pet Care Launching Soon!
-                          <Image
-                            src={platform}
-                            alt="Image"
-                            className="h-[28px] md:h-[34px] w-[140px] md:w-[166px]"
-                          />
-                        </span>
-                      </div>
-                      <Image
-                        src={appleGif}
-                        alt="Image"
-                        className={
-                          "top-0 absolute right-0 rounded-tr-[24px] rounded-br-[24px] h-[274px] w-[136px] md:h-[240px] md:w-[198px]"
-                        }
-                      />
-                    </div>
+                    <PromoVideoCard variant="homeMenu" />
                   </>
                 )}
               </div>

@@ -33,10 +33,10 @@ export const metadata = {
   description: "Official Calico Website",
   icons: {
     icon: [
-      { url: "/icons/favNewCropped.png", sizes: "32x32", type: "image/png" },
-      { url: "/icons/favNewCropped.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/favicon-new.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/favicon-new.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: "/icons/favNewCropped.png", // Apple touch icon
+    apple: "/icons/favicon-new.png", // Apple touch icon
   },
 };
 

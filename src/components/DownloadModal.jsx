@@ -3,12 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import android from "../../public/icons/android_download.svg";
 import apple from "../../public/icons/apple_download.svg";
-import appIconPhoneWeb from "../../public/images/calico-petcare-app-icon-phone-web.webp";
-import appIconPhoneTablet from "../../public/images/calico-petcare-app-icon-phone-tablet.webp";
-import appIconPhoneMobile from "../../public/images/calico-petcare-app-icon-phone-mobile.webp";
-import LogoDownload from "../../public/images/logoDownloadsec.svg";
-import platform from "../../public/images/platforms.svg";
 import { useDownloadPopup } from "../context/DownloadPopupContext";
+import PromoVideoCard from "./PromoVideoCard";
 
 export default function DownloadModal({ isOpen, variant = "desktop", onOpenDownloadNav }) {
   const { openPopup } = useDownloadPopup();
@@ -111,67 +107,7 @@ export default function DownloadModal({ isOpen, variant = "desktop", onOpenDownl
                   : "flex flex-col items-center w-full mt-[50px] md:mt-[54px]"
               }
             >
-              <div
-                className={
-                  variant === "desktop"
-                    ? "w-[466px] h-[404px] relative overflow-hidden rounded-[42px]"
-                    : "w-[100%] md:w-[75%] h-[274px] md:h-[240px] relative overflow-hidden rounded-[24px]"
-                }
-              >
-                <video
-                  src="/videos/download-video.webm"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className={
-                    variant === "desktop"
-                      ? "h-full w-full rounded-[42px] object-cover"
-                      : "h-full w-full rounded-[24px] object-cover"
-                  }
-                />
-                <div className="flex flex-col justify-between pl-5 gap-2 top-0 py-6 h-full absolute max-w-[220px]">
-                  <Image src={LogoDownload} width={66} height={22} alt="Logo" />
-                  <span className="text-[#0D302C] font-poppins text-[16px] md:text-[20px] flex flex-col gap-4 font-medium leading-[22px] md:leading-[24px] capitalize">
-                    Smarter Pet Care Launching Soon!
-                    <Image
-                      src={platform}
-                      alt="Image"
-                      className="h-[28px] md:h-[34px] w-[140px] md:w-[166px]"
-                    />
-                  </span>
-                </div>
-                {/* Desktop image */}
-                <Image
-                  src={appIconPhoneWeb}
-                  alt="Calico App"
-                  className={
-                    variant === "desktop"
-                      ? "bottom-0 absolute right-0 rounded-br-[42px] object-contain h-full w-auto"
-                      : "hidden"
-                  }
-                />
-                {/* Tablet image - visible on md screens */}
-                <Image
-                  src={appIconPhoneTablet}
-                  alt="Calico App"
-                  className={
-                    variant === "desktop"
-                      ? "hidden"
-                      : "hidden md:block bottom-0 absolute right-0 rounded-br-[24px] object-contain h-full w-auto"
-                  }
-                />
-                {/* Mobile image - visible on small screens */}
-                <Image
-                  src={appIconPhoneMobile}
-                  alt="Calico App"
-                  className={
-                    variant === "desktop"
-                      ? "hidden"
-                      : "block md:hidden bottom-0 absolute right-0 rounded-br-[24px] object-contain h-full w-auto"
-                  }
-                />
-              </div>
+              <PromoVideoCard variant={variant === "desktop" ? "desktop" : "mobile"} />
             </div>
           </div>
         </motion.div>
