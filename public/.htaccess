@@ -1,0 +1,11 @@
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteBase /
+
+# If the request is not an existing file
+RewriteCond %{REQUEST_FILENAME} !-f
+# And if request-path.html exists on disk (flat file from Next.js static export)
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+# Serve that .html file transparently (no redirect, URL stays clean)
+RewriteRule ^(.+)$ $1.html [L]
