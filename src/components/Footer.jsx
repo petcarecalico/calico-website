@@ -98,7 +98,7 @@ export default function Footer() {
                     <div className="hidden md:flex flex-col gap-8 font-poppins">
                         <div>
                             <h3 className="font-medium text-right md:text-left text-[#000000] lg:text-[14px] text-[13px]">Contact</h3>
-                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">2nd Stage, Indiranagar, Bengaluru, <br /> Karnataka 560008</p>
+                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">Provident Sunworth City<br />Bengaluru, Karnataka 560060</p>
                         </div>
                         <div>
                             <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2] mb-2">info@calicopetcare.com</p>

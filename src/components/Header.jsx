@@ -267,7 +267,7 @@ export default function Header() {
           )}
         </AnimatePresence>
 
-      </nav>''
+      </nav>
     </section>
   );
 }
