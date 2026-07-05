@@ -2,17 +2,10 @@
 import Image from "next/image";
 import android from "../../../public/icons/android_download.svg";
 import apple from "../../../public/icons/apple_download.svg";
-import { useDownloadPopup } from "../../context/DownloadPopupContext";
 import PromoVideoCard from "../../components/PromoVideoCard";
+import { APP_LINKS as LINKS } from "../../lib/constants";
 
-export default function DownloadPage() {
-  const { openPopup } = useDownloadPopup();
-
-  const handleOpenDownloadNav = () => {
-    openPopup();
-  };
-
-  return (
+export default function DownloadPage() {  return (
     // h-screen on desktop; overflow-y-auto so mobile can scroll if content is taller
     <div className="h-screen bg-white overflow-y-auto flex items-start lg:items-center justify-center">
       {/* Mirrors DownloadModal: desktop = px-[140px] py-[60px] flex-row | mobile = flex-col */}
@@ -47,18 +40,22 @@ export default function DownloadPage() {
             </div>
             {/* Buttons */}
             <div className="flex gap-4 mt-7 flex-col w-full items-center lg:items-start lg:flex-row">
-              <button
+              <a
+                href={LINKS.calicoIOS}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#F6DF8F4D] font-poppins text-[16px] font-medium justify-center w-[276px]"
-                onClick={handleOpenDownloadNav}
               >
                 <Image src={apple} alt="Apple" height={26} width={26} /> Download Calico APP
-              </button>
-              <button
+              </a>
+              <a
+                href={LINKS.calicoAndroid}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#F6DF8F4D] font-poppins text-[16px] font-medium justify-center w-[276px]"
-                onClick={handleOpenDownloadNav}
               >
                 <Image src={android} alt="Android" height={26} width={26} /> Download Calico APP
-              </button>
+              </a>
             </div>
           </div>
 
@@ -80,18 +77,22 @@ export default function DownloadPage() {
             </div>
             {/* Buttons */}
             <div className="flex gap-4 mt-7 flex-col w-full items-center lg:items-start lg:flex-row">
-              <button
+              <a
+                href={LINKS.businessIOS}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#B1E6FF4D] font-poppins text-[16px] font-medium justify-center w-[276px]"
-                onClick={handleOpenDownloadNav}
               >
                 <Image src={apple} alt="Apple" height={26} width={26} /> Download Calico Business
-              </button>
-              <button
+              </a>
+              <a
+                href={LINKS.businessAndroid}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex px-[10px] py-[8px] gap-2 rounded-[12px] border border-black/5 bg-[#B1E6FF4D] font-poppins text-[16px] font-medium justify-center w-[276px]"
-                onClick={handleOpenDownloadNav}
               >
                 <Image src={android} alt="Android" height={26} width={26} /> Download Calico Business
-              </button>
+              </a>
             </div>
           </div>
         </div>

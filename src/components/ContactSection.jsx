@@ -80,7 +80,7 @@ export default function ContactSection() {
                     info@calicopetcare.com
                   </p>
                   <p className="text-[#000000] lg:text-[16px] text-[14px] text-center md:text-start  font-medium font-poppins">
-                    9363298065
+                    6361298065
                   </p>
                 </div>
 

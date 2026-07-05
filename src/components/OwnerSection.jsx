@@ -8,10 +8,9 @@ import star from "../../public/icons/star.svg";
 import footprint1 from "../../public/icons/foot-print-1.svg";
 import footprint2 from "../../public/icons/foot-print-2.svg";
 import { motion } from "framer-motion";
-import { useDownloadPopup } from "../context/DownloadPopupContext";
+import { APP_LINKS as LINKS } from "../lib/constants";
 
 export default function OwnerSection() {
-  const { openPopup } = useDownloadPopup();
   return (
     <section className="w-full flex flex-col justify-center items-center" id="features">
       <div className="w-full bg-[#F6DF8F4D] lg:rounded-t-[462px] rounded-t-[112px] md:rounded-t-[212px] flex flex-col items-center lg:px-20 px-[20px] md:px-[60px]  lg:pt-35 md:pt-[72px] pt-[62px] pb-0">
@@ -63,20 +62,24 @@ export default function OwnerSection() {
 
               {/* Buttons */}
               <div className="flex flex-col gap-4 lg:max-w-[336px] max-w-[260px]">
-                <button
+                <a
+                  href={LINKS.businessIOS}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-nowrap px-3 py-2 rounded-[12px] bg-[#A16207] shadow-[4px_4px_0px_0px_#000] text-white font-poppins font-[500] lg:text-[20px] text-[14px] transition-transform duration-200 hover:scale-105"
-                  onClick={openPopup}
                 >
                   Download Calico Bussiness  <Image src={apple} alt="Apple Store" width={20} height={20} />
-                </button>
+                </a>
 
-                <button
+                <a
+                  href={LINKS.businessAndroid}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 px-3 py-2 text-nowrap rounded-[12px] bg-[#A16207] shadow-[4px_4px_0px_0px_#000] text-white font-poppins font-[500] lg:text-[20px] text-[14px] transition-transform duration-200 hover:scale-105"
-                  onClick={openPopup}
                 >
                   Download Calico Bussiness
                   <Image src={android} alt="Google Play" width={20} height={20} />
-                </button>
+                </a>
               </div>
             </div>
 

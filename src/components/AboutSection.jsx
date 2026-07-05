@@ -9,7 +9,7 @@ import notes from "../../public/icons/notes.svg";
 import Image from "next/image";
 import android from "../../public/icons/android.svg";
 import apple from "../../public/icons/apple.svg";
-import { useDownloadPopup } from "../context/DownloadPopupContext";
+import { APP_LINKS as LINKS } from "../lib/constants";
 
 
 const containerVariants = {
@@ -42,8 +42,6 @@ const fadeScale = {
 };
 
 export default function AboutSection() {
-    const { openPopup } = useDownloadPopup();
-
     return (
         <section className="w-full flex flex-col justify-center h-full" id="about">
             {/* Top Section */}
@@ -181,25 +179,29 @@ export default function AboutSection() {
                 </p>
 
                 <div className="flex items-center gap-4 flex-wrap justify-center">
-                    <motion.button
+                    <motion.a
+                        href={LINKS.calicoIOS}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="flex items-center gap-3 px-3 py-2 rounded-[12px] bg-[#76A013] shadow-[4px_4px_0px_0px_#000] text-white font-poppins font-[500] lg:text-[20px] text-[14px]"
-                        onClick={openPopup}
                     >
                         Download Calico APP
                         <Image src={apple} alt="Apple Store" width={20} height={20} />
-                    </motion.button>
+                    </motion.a>
 
-                    <motion.button
+                    <motion.a
+                        href={LINKS.calicoAndroid}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="flex items-center gap-3 px-3 py-2 rounded-[12px] bg-[#76A013] shadow-[4px_4px_0px_0px_#000] text-white font-poppins font-[500] lg:text-[20px] text-[14px]"
-                        onClick={openPopup}
                     >
                         Download Calico APP
                         <Image src={android} alt="Google Play" width={20} height={20} />
-                    </motion.button>
+                    </motion.a>
                 </div>
                 {/* DownloadNav modal is now handled globally */}
             </motion.div>

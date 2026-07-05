@@ -7,6 +7,7 @@ import linked from "../../public/icons/linkedinIcon.svg";
 import youtube from "../../public/icons/youtube.svg";
 import facebook from "../../public/icons/facebook.svg";
 import x from "../../public/icons/twitter.svg";
+import { APP_LINKS } from "../lib/constants";
 
 export default function Footer() {
     return (
@@ -69,16 +70,16 @@ export default function Footer() {
                     {/* Download Links */}
                     <div className="flex flex-col gap-3 font-poppins">
                         <h3 className="font-medium text-[#000000] text-center md:text-left lg:text-[14px] text-[13px]">Download Links</h3>
-                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px] font-normal text-[#000000B2]">
+                        <Link href={APP_LINKS.calicoIOS} target="_blank" rel="noopener noreferrer" className=" transition text-center md:text-left lg:text-[14px] text-[12px] font-normal text-[#000000B2]">
                             Calico (iOS)
                         </Link>
-                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
+                        <Link href={APP_LINKS.calicoAndroid} target="_blank" rel="noopener noreferrer" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
                             Calico (Android)
                         </Link>
-                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
+                        <Link href={APP_LINKS.businessIOS} target="_blank" rel="noopener noreferrer" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
                             Calico Business (iOS)
                         </Link>
-                        <Link href="#" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
+                        <Link href={APP_LINKS.businessAndroid} target="_blank" rel="noopener noreferrer" className=" transition text-center md:text-left lg:text-[14px] text-[12px]  font-normal text-[#000000B2]">
                             Calico Business (Android)
                         </Link>
                     </div>
@@ -102,7 +103,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2] mb-2">info@calicopetcare.com</p>
-                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">9363298065</p>
+                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">6361298065</p>
                         </div>
                     </div>
 
@@ -169,7 +170,7 @@ export default function Footer() {
                 <div className="w-full border-t border-[#E2E0DA]" />
                 {/* Bottom Row */}
                 <div className="flex flex-col text-nowrap justify-between items-center gap-0 lg:text-sm text-[10px] text-[#1C1B1F]/70 font-poppins">
-                    <p>All rights reserved. © 2025 Calico.</p>
+                    <p>All rights reserved. © {new Date().getFullYear()} Calico.</p>
 
                     <div className="flex items-center gap-6">
                         {/* Socials */}
