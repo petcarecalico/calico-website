@@ -2,31 +2,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { DownloadPopupProvider } from "../context/DownloadPopupContext";
 import DownloadPopupRoot from "../components/DownloadPopupRoot";
-import { Poppins, Prata, Inter } from "next/font/google";
 import AOSProvider from "@/components/AOSprovider";
 import "aos/dist/aos.css";
-
-
-// Poppins (general UI font)
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-});
-
-// Prata (serif display font for headings)
-const prata = Prata({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-prata",
-});
-
-// Inter (modern sans for body text, optional)
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-});
 
 export const metadata = {
   title: "Book Pet Clinic Appointments Online in Bangalore | Calico",
@@ -43,6 +20,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full overflow-x-hidden">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700&family=Prata&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-screen overflow-x-hidden">
         <DownloadPopupProvider>
           {/* Global Navbar */}
