@@ -102,8 +102,8 @@ export default function Footer() {
                             <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">Provident Sunworth City<br />Bengaluru, Karnataka 560060</p>
                         </div>
                         <div>
-                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2] mb-2">info@calicopetcare.com</p>
-                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]">6361298065</p>
+                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2] mb-2"><a href="mailto:info@calicopetcare.com">info@calicopetcare.com</a></p>
+                            <p className=" transition text-right md:text-left lg:text-[14px] text-[12px] font-normal  text-[#000000B2]"><a href="tel:+916361298065">+91 6361 298 065</a></p>
                         </div>
                     </div>
 

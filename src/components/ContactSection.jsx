@@ -77,10 +77,10 @@ export default function ContactSection() {
                     General inquiries
                   </h3>
                   <p className="text-[#000000] lg:text-[16px] text-[14px] text-center md:text-start font-medium font-poppins">
-                    info@calicopetcare.com
+                    <a href="mailto:info@calicopetcare.com">info@calicopetcare.com</a>
                   </p>
                   <p className="text-[#000000] lg:text-[16px] text-[14px] text-center md:text-start  font-medium font-poppins">
-                    6361298065
+                    <a href="tel:+916361298065">+91 6361 298 065</a>
                   </p>
                 </div>
 
@@ -90,10 +90,7 @@ export default function ContactSection() {
                     Collaborations
                   </h3>
                   <p className="text-[#000000] lg:text-[16px] text-[14px] text-center md:text-start font-medium font-poppins">
-                    teams@calicopetcare.com
-                  </p>
-                  <p className="text-[#000000] lg:text-[16px] text-[14px] text-center md:text-start font-medium font-poppins">
-                    70123 94800
+                    <a href="tel:+917012394800">+91 7012 394 800</a>
                   </p>
                 </div>
               </div>

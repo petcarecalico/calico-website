@@ -37,7 +37,7 @@ export default function PromoVideoCard({ variant = "desktop" }) {
       <div className="flex flex-col justify-between pl-5 gap-2 top-0 py-6 h-full absolute max-w-[220px]">
         <Image src={LogoDownload} width={66} height={22} alt="Logo" />
         <span className="text-[#0D302C] font-poppins text-[16px] md:text-[20px] flex flex-col gap-4 font-medium leading-[22px] md:leading-[24px] capitalize">
-          Smarter Pet Care Launching Soon!
+          Next-Gen Pet Care
           <Image
             src={platform}
             alt="Image"
